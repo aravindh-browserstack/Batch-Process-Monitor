@@ -17,7 +17,7 @@ IF %ERRORLEVEL% NEQ 0 (
   IF "%pname%" == "" (
     GOTO :END
   )
-  echo "Restarting process..%pame%"
+  echo "Restarting process.."
   START "" "%pname%"
 )
 
