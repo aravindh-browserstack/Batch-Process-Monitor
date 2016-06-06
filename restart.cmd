@@ -14,12 +14,13 @@ SET pname=""
 
 SET appname=""
 
-FOR /F "tokens=2 delims=," %%i in ('wmic process get CommandLine /format:csv ^| find "%searchst%" ^| find /V "find"') do ( set appname=%%i )
+FOR /F "tokens=2 delims=," %%i in ('wmic process get CommandLine /format:csv ^| find "%searchst%" ^| find /V "find" ^| find /V "restart"') do ( set appname=%%i )
 
 IF NOT "%appname%" == """" (
     SET pname=%appname%
 )
 
+echo %pname%
 IF NOT "%pname%" == """" (
   IF "%appname%" == """" (
   cd %workingdir% 
